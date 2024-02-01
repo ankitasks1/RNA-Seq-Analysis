@@ -156,6 +156,8 @@ plotDendroAndColors(
   guideHang = 0.05 )
 
 ![dendrogram](Rplot01.png)
+<img src="https://github.com/ankitasks1/RNA-Seq-Analysis/blob/main/Rplot01.png" width="128"/>
+                                         
 module_df <- data.frame(
   gene_id = names(netwk$colors),
   colors = labels2colors(netwk$colors)
