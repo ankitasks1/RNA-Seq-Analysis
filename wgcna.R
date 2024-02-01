@@ -155,7 +155,7 @@ plotDendroAndColors(
   addGuide = TRUE,
   guideHang = 0.05 )
 
-
+![dendrogram][Rplot.svg]
 module_df <- data.frame(
   gene_id = names(netwk$colors),
   colors = labels2colors(netwk$colors)
