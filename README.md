@@ -75,6 +75,7 @@ dds <- DESeq2::DESeq(dds)
 
 ### de_temp are differentially expressed genes
 ### temp all genes 
+<code>
 diff_deseq2_sig_list <- list()
 fc = 1
 for (i in c("NFYA6", "NLP5", "PDF2", "NFYA5")){
@@ -105,10 +106,11 @@ for (contrasts in names(diff_deseq2_sig_list)){
                                                  font.legend = "bold", font.main = "bold", ggtheme = ggplot2::theme_minimal())
   
 }
-
+</code>
 ##### ggmaplot is part of ggpubr package
 
 ### clusterprofiler analysis
+<code>
 cp_analysis_list <- list()
 for (clist in names(diff_deseq2_sig_list)){
   print(clist)
@@ -141,6 +143,6 @@ for (clist in names(diff_deseq2_sig_list)){
   cp_analysis_list[[clist]][["ridgeplot"]] <- gse_ridgeplot
   cp_analysis_list[[clist]][["gseaplot"]] <- gse_gseaplot
 }
-
+</code>
 # 
 <img src="https://github.com/ankitasks1/RNA-Seq-Analysis/blob/main/Rplot01.png" width="128"/>
