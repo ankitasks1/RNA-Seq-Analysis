@@ -28,12 +28,19 @@ featureCounts -t exon -g gene_id -s 2 -a /export/home/ankitv/ref_av/gencodes/gen
 
 # DESeq2
 library(tidyverse)
+
 library(readxl)
+
 library(DESeq2)
+
 library(edgeR)
+
 library(clusterProfiler)
+
 library(org.At.tair.db)
+
 library(ggpubr)
+
 setwd("~/Downloads/kalki")
 
 #### read the count matrix
