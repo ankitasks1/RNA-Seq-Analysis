@@ -44,46 +44,71 @@ library(ggpubr)
 setwd("~/Downloads/kalki")
 
 #### read the count matrix
+
 ctx <- read.table("~/Downloads/kalki/appliedgenomics_ankit/AppliedG_HW3/AppliedG_HW3/TARGET_counts.txt", header = T)
+
 dim(ctx)
+
 head(ctx)
+
 rownames(ctx) <- gsub("gene:","",ctx$Geneid)
+
 ctx <- ctx[,-1]
+
 colnames(ctx) <- gsub("_Aligned.sortedByCoord.out.bam","", colnames(ctx))
+
 colnames(ctx) <- gsub("..HWTKNDRX3_n01_","", colnames(ctx))
+
 ctx <- ctx[,-c(17:18)]
 
 #### read the metadata
+
 coldata <- read.table("~/Downloads/kalki/coldata.txt", header = T)
+
 coldata$Sample <- gsub("_Aligned.sortedByCoord.out.bam","", coldata$Sample)
+
 coldata$Sample <- gsub("..HWTKNDRX3_n01_","", coldata$Sample)
+
 rownames(coldata) <- coldata$Sample
+
 coldata$TF <- factor(coldata$TF)
+
 coldata$Replicate <- factor(coldata$Replicate)
 
 all(rownames(coldata) == colnames(ctx))
 
 ### deseq object
+
 dds <- DESeqDataSetFromMatrix(countData = ctx, colData = coldata, design = ~TF)
+
 dds
 
 keep <- rowSums(counts(dds) >= 5) >=3
+
 dds <- dds[keep,]
 
 ddsNorm <- estimateSizeFactors(dds)
+
 sizeFactors(ddsNorm)
 
 vst <- vst(dds, blind=TRUE)
+
 pca_plot <-plotPCA(vst, intgroup=c("TF","Replicate"))
+
 pca_plot
+
 ### DE analysis with DESeq2
+
 dds <- DESeq2::DESeq(dds)
 
 
 ### de_temp are differentially expressed genes
+
 ### temp all genes 
+
 <code>
-diff_deseq2_sig_list <- list()
+
+  diff_deseq2_sig_list <- list()
 fc = 1
 for (i in c("NFYA6", "NLP5", "PDF2", "NFYA5")){
   print(i)
