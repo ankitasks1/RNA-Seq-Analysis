@@ -102,9 +102,9 @@ pca_plot
 dds <- DESeq2::DESeq(dds)
 
 
-### de_temp are differentially expressed genes
+#####de_temp are differentially expressed genes
 
-### temp all genes 
+#####temp all genes 
 
 <code>
 
