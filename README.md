@@ -119,11 +119,11 @@ for (i in c("NFYA6", "NLP5", "PDF2", "NFYA5")){
   de_temp_sig <- de_temp %>% dplyr::filter((log2FoldChange > fc) | (log2FoldChange < -fc))
   de_temp_up <- de_temp %>% dplyr::filter((log2FoldChange > fc))
   de_temp_down <- de_temp %>% dplyr::filter((log2FoldChange < -fc))
-  diff_deseq2_sig_list[[paste0(i, "_", "EV")]][["all"]] <- temp
-  diff_deseq2_sig_list[[paste0(i, "_", "EV")]][["de"]] <- de_temp
-  diff_deseq2_sig_list[[paste0(i, "_", "EV")]][["de_sig_all"]] <- de_temp_sig
-  diff_deseq2_sig_list[[paste0(i, "_", "EV")]][["de_sig_up"]] <- de_temp_up
-  diff_deseq2_sig_list[[paste0(i, "_", "EV")]][["de_sig_down"]] <- de_temp_down
+  diff_deseq2_sig_list[[paste0(i, "", "EV")]][["all"]] <- temp
+  diff_deseq2_sig_list[[paste0(i, "", "EV")]][["de"]] <- de_temp
+  diff_deseq2_sig_list[[paste0(i, "", "EV")]][["de_sig_all"]] <- de_temp_sig
+  diff_deseq2_sig_list[[paste0(i, "", "EV")]][["de_sig_up"]] <- de_temp_up
+  diff_deseq2_sig_list[[paste0(i, "", "EV")]][["de_sig_down"]] <- de_temp_down
 }
 
 
